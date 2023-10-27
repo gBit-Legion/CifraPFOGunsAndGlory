@@ -1,3 +1,23 @@
+<template>
+  <div id="file-drag-drop">
+    <form ref="fileform">
+      <span class="drop-files">Пертащите сюда файл!</span>
+    </form>
+
+    <progress max="100" :value.prop="uploadPercentage"></progress>
+
+    <div v-for="(file, key) in files" class="file-listing">
+      <img class="preview" v-bind:ref="'preview'+parseInt( key )"/>
+      {{ file.name }}
+      <div class="remove-container">
+        <a class="remove" v-on:click="removeFile( key )">Удалить</a>
+      </div>
+    </div>
+
+    <a class="submit-button" v-on:click="submitFiles()" v-show="files.length > 0" href="#/result">Обработать</a>
+  </div>
+</template>
+
 <style>
   form{
     display: block;
@@ -52,26 +72,6 @@
     margin-bottom: 20px;
   }
 </style>
-
-<template>
-  <div id="file-drag-drop">
-    <form ref="fileform">
-      <span class="drop-files">Drop the files here!</span>
-    </form>
-
-    <progress max="100" :value.prop="uploadPercentage"></progress>
-
-    <div v-for="(file, key) in files" class="file-listing">
-      <img class="preview" v-bind:ref="'preview'+parseInt( key )"/>
-      {{ file.name }}
-      <div class="remove-container">
-        <a class="remove" v-on:click="removeFile( key )">Remove</a>
-      </div>
-    </div>
-
-    <a class="submit-button" v-on:click="submitFiles()" v-show="files.length > 0">Submit</a>
-  </div>
-</template>
 
 <script>
 import axios from 'axios'
