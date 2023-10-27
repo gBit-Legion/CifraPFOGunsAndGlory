@@ -9,7 +9,7 @@ services:
     volumes:
       - .:/app
     ports:
-      - 8008:8000
+      - 8080:8080
     environment:
       - DATABASE_URL=postgresql://fastapi_traefik:fastapi_traefik@db:5432/fastapi_traefik
     depends_on:
@@ -21,9 +21,9 @@ services:
     expose:
       - 5432
     environment:
-      - POSTGRES_USER=fastapi_traefik
-      - POSTGRES_PASSWORD=fastapi_traefik
-      - POSTGRES_DB=fastapi_traefik
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=1234
+      - POSTGRES_DB=guns
 
 volumes:
   postgres_data:
