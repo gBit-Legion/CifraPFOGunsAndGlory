@@ -1,6 +1,6 @@
 <template>
     <div class="logo">
-        <img src="../image/Logo.png" alt="Логотип РЖД">
+        <img src="../image/logo.png" alt="Логотип РЖД">
     </div>
     <Drag />
 </template>
@@ -21,7 +21,7 @@
 }
 
 .logo {
-    width: 200px;
+    width: 143px;
     margin: 0 auto;
 }
 </style>
